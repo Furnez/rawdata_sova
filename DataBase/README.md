@@ -1,6 +1,6 @@
-#SOVA Database
+# SOVA Database
   
-###How to create the database in your local connection ?
+### How to create the database in your local connection ?
 
 To create our database you need to first import and create the original DB thanks to the script : `StackOverflow database preview.sql`.  
 Then just execute, while using the database, the script `SOVA - database script.sql`, it will normalize the original database as we saw fit.  
