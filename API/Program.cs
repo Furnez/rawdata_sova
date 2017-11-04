@@ -14,6 +14,29 @@ namespace API
     {
         public static void Main(string[] args)
         {
+            List<string> DbParams = new List<string>();
+            string[] ParamsQA = { "Connection name (ex: localhost, 192.xxx.xxx.xxx, etc ...) : ", "DataBase name : ", "User id : ", "Password : " };
+            string conf = File.ReadAllText("db.conf");
+            string input;
+            int index = 1;
+
+            Console.Write(ParamsQA[0]);
+            while (!string.IsNullOrEmpty(input = Console.ReadLine()) && index < ParamsQA.Count())
+            {
+                Console.Write(ParamsQA[index]);
+                DbParams.Add(input);
+                index++;
+            }
+            DbParams.Add(input); // used to add the last input
+
+            conf = conf.Replace(conf,
+                "connection=" + DbParams[0] +
+                "\ndbname=" + DbParams[1] +
+                "\nuid=" + DbParams[2] +
+                "\npwd=" + DbParams[3]
+             );
+            File.WriteAllText("db.conf", conf.Trim());
+
             BuildWebHost(args).Run();
         }
 

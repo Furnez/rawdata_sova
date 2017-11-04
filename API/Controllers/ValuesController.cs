@@ -9,6 +9,8 @@ namespace API.Controllers
     [Route("api/[controller]")]
     public class ValuesController : Controller
     {
+        private SOVAContext db = new SOVAContext();
+
         // GET api/values
         [HttpGet]
         public IEnumerable<string> Get()
