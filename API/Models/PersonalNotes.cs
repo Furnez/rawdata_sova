@@ -10,9 +10,9 @@ namespace API
         [Column("NoteId")]
         public int Nid { get; set; }
         public int UserId { get; set; }
-        public int PostId { get; set; }
-        public int CommentsId { get; set; }
-        public int Id { get; set; }
+        public System.Nullable<int> PostId { get; set; }
+        public System.Nullable<int> CommentsId { get; set; }
+        public System.Nullable<int> Id { get; set; }
         public String NoteString { get; set; }
         public DateTime NoteCreationDate { get; set; }
     }

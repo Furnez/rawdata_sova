@@ -15,7 +15,7 @@ namespace API.Controllers
         [HttpGet]
         public List<dynamic> Get()
         {
-            var posts = this.db.postsindhold.Select(x => new { x.Id, x.Body, x.Score }).ToList<dynamic>();
+            var posts = this.db.postsindhold.ToList<dynamic>();
 
             return posts;
         }

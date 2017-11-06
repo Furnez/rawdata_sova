@@ -11,9 +11,9 @@ namespace API
 
         public int Mid { get; set; }
         public int UserId { get; set; }
-        public int PostId { get; set; }
-        public int CommentsId { get; set; }
-        public int Id { get; set; }
+        public System.Nullable<int> PostId { get; set; }
+        public System.Nullable<int> CommentsId { get; set; }
+        public System.Nullable<int> Id { get; set; }
         public String MarkedString { get; set; }
         public DateTime MarkedCreationDate { get; set; }
     }
