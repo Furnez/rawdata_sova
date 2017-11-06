@@ -13,9 +13,9 @@ namespace API.Controllers
 
         // GET api/values
         [HttpGet]
-        public List<PostsIndhold> Get()
+        public List<dynamic> Get()
         {
-            var posts = this.db.PostsIndhold.ToList<PostsIndhold>();
+            var posts = this.db.postsindhold.Select(x => new { x.Id, x.Body, x.Score }).ToList<dynamic>();
 
             return posts;
         }

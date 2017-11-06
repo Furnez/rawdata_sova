@@ -27,16 +27,19 @@ namespace API
                 DbParams.Add(input);
                 index++;
             }
-            DbParams.Add(input); // used to add the last input
+            if (!string.IsNullOrEmpty(input))
+            {
+                DbParams.Add(input); // used to add the last input
 
-            conf = conf.Replace(conf,
-                "connection=" + DbParams[0] +
-                "\ndbname=" + DbParams[1] +
-                "\nuid=" + DbParams[2] +
-                "\npwd=" + DbParams[3]
-             );
-            File.WriteAllText("db.conf", conf.Trim());
+                conf = conf.Replace(conf,
+                    "connection=" + DbParams[0] +
+                    "\ndbname=" + DbParams[1] +
+                    "\nuid=" + DbParams[2] +
+                    "\npwd=" + DbParams[3]
+                 );
+                File.WriteAllText("db.conf", conf.Trim());
 
+            }
             BuildWebHost(args).Run();
         }
 

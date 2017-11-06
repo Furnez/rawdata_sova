@@ -11,15 +11,15 @@ namespace API
     public class SOVAContext : DbContext
     {
         // Public variables
-        public DbSet<Commentsbody> Commentsbody { get; set; }
-        public DbSet<CommentUser> CommentUser { get; set; }
-        public DbSet<Marked> Marked { get; set; }
-        public DbSet<PersonalNotes> PersonalNotes { get; set; }
-        public DbSet<PostsIndhold> PostsIndhold { get; set; }
-        public DbSet<PostsLinkpostId> PostsLinkpostId { get; set; }
-        public DbSet<PostsOwner> PostsOwner { get; set; }
-        public DbSet<PostsTag> PostsTag { get; set; }
-        public DbSet<SearchHistory> SearchHistory { get; set; }
+        public DbSet<Commentsbody> commentsbody { get; set; }
+        public DbSet<CommentUser> commentuser { get; set; }
+        public DbSet<Marked> marked { get; set; }
+        public DbSet<PersonalNotes> personalnotes { get; set; }
+        public DbSet<PostsIndhold> postsindhold { get; set; }
+        public DbSet<PostsLinkpostId> postslinkpostid { get; set; }
+        public DbSet<PostsOwner> postsowner { get; set; }
+        public DbSet<PostsTag> poststag { get; set; }
+        public DbSet<SearchHistory> searchhistory { get; set; }
 
         // Private variables
         private string _connectionName;
