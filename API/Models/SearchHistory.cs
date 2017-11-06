@@ -3,13 +3,13 @@ using System.Collections.Generic;
 using System.Text;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace RdPorSub2
+namespace API
 {
-    class SearchHistory
+    public class SearchHistory
     {
         [Column("SearchNumberId")]
-        private int Id { get; set; }
-        private String SearchString { get; set; }
-        private DateTime SearchDate { get; set; }
+        public int Id { get; set; }
+        public String SearchString { get; set; }
+        public DateTime SearchDate { get; set; }
     }
 }

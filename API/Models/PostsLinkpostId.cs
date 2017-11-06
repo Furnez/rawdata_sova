@@ -3,13 +3,13 @@ using System.Collections.Generic;
 using System.Text;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace RdPorSub2
+namespace API
 {
-    class PostsLinkpostId
+    public class PostsLinkpostId
     {
         [Column("Id")]
-        private int Id { get; set; }
-        private int LinkpostId { get; set; }
-        private int OwnerUserId { get; set; }
+        public int Id { get; set; }
+        public int LinkpostId { get; set; }
+        public int OwnerUserId { get; set; }
     }
 }

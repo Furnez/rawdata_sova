@@ -3,16 +3,16 @@ using System.Collections.Generic;
 using System.Text;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace RdPorSub2
+namespace API
 {
-    class PostsTag
+    public class PostsTag
     {
         [Column("Id")]
-        private int Id { get; set; }
-        private String Tag1 { get; set; }
-        private String Tag2 { get; set; }
-        private String Tag3 { get; set; }
-        private String Tag4 { get; set; }
-        private String Tag5 { get; set; }
+        public int Id { get; set; }
+        public String Tag1 { get; set; }
+        public String Tag2 { get; set; }
+        public String Tag3 { get; set; }
+        public String Tag4 { get; set; }
+        public String Tag5 { get; set; }
     }
 }

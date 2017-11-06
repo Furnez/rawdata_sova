@@ -7,15 +7,17 @@ using Microsoft.AspNetCore.Mvc;
 namespace API.Controllers
 {
     [Route("api/[controller]")]
-    public class ValuesController : Controller
+    public class PostsController : Controller
     {
         private SOVAContext db = new SOVAContext();
 
         // GET api/values
         [HttpGet]
-        public IEnumerable<string> Get()
+        public List<PostsIndhold> Get()
         {
-            return new string[] { "value1", "value2" };
+            var posts = this.db.PostsIndhold.ToList<PostsIndhold>();
+
+            return posts;
         }
 
         // GET api/values/5

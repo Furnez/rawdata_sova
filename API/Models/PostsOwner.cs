@@ -3,17 +3,17 @@ using System.Collections.Generic;
 using System.Text;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace RdPorSub2
+namespace API
 {
-    class PostsOwner
+    public class PostsOwner
     {
         [Column("OwnerUserId")]
-        private int Oid { get; set; }
-        private int Id { get; set; }
-        private String OwnerUserDisplayName { get; set; }
-        private DateTime OwnerUserCreationDate { get; set; }
-        private String PostsOwnerCountry { get; set; }
-        private String PostsOwnerCity { get; set; }
-        private int OwnerUserAge { get; set; }
+        public int Oid { get; set; }
+        public int Id { get; set; }
+        public String OwnerUserDisplayName { get; set; }
+        public DateTime OwnerUserCreationDate { get; set; }
+        public String PostsOwnerCountry { get; set; }
+        public String PostsOwnerCity { get; set; }
+        public int OwnerUserAge { get; set; }
     }
 }

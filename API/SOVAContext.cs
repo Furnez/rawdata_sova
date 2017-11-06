@@ -10,6 +10,17 @@ namespace API
     // Hint: Use Nugget package Pomelo.EntityFramework.MySql
     public class SOVAContext : DbContext
     {
+        // Public variables
+        public DbSet<Commentsbody> Commentsbody { get; set; }
+        public DbSet<CommentUser> CommentUser { get; set; }
+        public DbSet<Marked> Marked { get; set; }
+        public DbSet<PersonalNotes> PersonalNotes { get; set; }
+        public DbSet<PostsIndhold> PostsIndhold { get; set; }
+        public DbSet<PostsLinkpostId> PostsLinkpostId { get; set; }
+        public DbSet<PostsOwner> PostsOwner { get; set; }
+        public DbSet<PostsTag> PostsTag { get; set; }
+        public DbSet<SearchHistory> SearchHistory { get; set; }
+
         // Private variables
         private string _connectionName;
         private string _dbName;
@@ -50,6 +61,33 @@ namespace API
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
+
+            modelBuilder.Entity<Commentsbody>()
+            .Property(x => x.Id).HasColumnName("Id");
+
+            modelBuilder.Entity<CommentUser>()
+            .Property(x => x.Id).HasColumnName("Id");
+
+            modelBuilder.Entity<Marked>()
+            .Property(x => x.Mid).HasColumnName("Markedid");
+
+            modelBuilder.Entity<PersonalNotes>()
+            .Property(x => x.Nid).HasColumnName("NoteId");
+
+            modelBuilder.Entity<PostsIndhold>()
+            .Property(x => x.Id).HasColumnName("Id");
+
+            modelBuilder.Entity<PostsLinkpostId>()
+            .HasKey(c => new { c.Id, c.LinkpostId });
+
+            modelBuilder.Entity<PostsOwner>()
+            .Property(x => x.Oid).HasColumnName("OwnerUserId");
+
+            modelBuilder.Entity<PostsTag>()
+            .Property(x => x.Id).HasColumnName("Id");
+
+            modelBuilder.Entity<SearchHistory>()
+            .Property(x => x.Id).HasColumnName("SearchNumberId");
         }
     }
 }

@@ -3,20 +3,20 @@ using System.Collections.Generic;
 using System.Text;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace RdPorSub2
+namespace API
 {
-    class PostsIndhold
+    public class PostsIndhold
     {
         [Column("Id")]
-        private int Id { get; set; }
-        private int PostTypeId { get; set; }
-        private int OwneruserId { get; set; }
-        private int ParentId { get; set; }
-        private int AcceptedAnswerId { get; set; }
-        private DateTime CreationDate { get; set; }
-        private int Score { get; set; }
-        private String Body { get; set; }
-        private DateTime ClosedDate { get; set; }
-        private String Title { get; set; }
+        public int Id { get; set; }
+        public int PostTypeId { get; set; }
+        public int OwneruserId { get; set; }
+        public int ParentId { get; set; }
+        public int AcceptedAnswerId { get; set; }
+        public DateTime CreationDate { get; set; }
+        public int Score { get; set; }
+        public String Body { get; set; }
+        public DateTime ClosedDate { get; set; }
+        public String Title { get; set; }
     }
 }
