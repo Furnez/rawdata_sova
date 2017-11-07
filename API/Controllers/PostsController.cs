@@ -22,9 +22,9 @@ namespace API.Controllers
 
         // GET api/values/5
         [HttpGet("{id}")]
-        public string Get(int id)
+        public PostsIndhold Get(int id)
         {
-            return "value";
+            return db.postsindhold.Find(id);
         }
 
         // POST api/values
