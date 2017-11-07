@@ -23,3 +23,22 @@ Global
 		SolutionGuid = {1E7DF62E-2F95-46B4-B181-A33DC6685E87}
 	EndGlobalSection
 EndGlobal
+=======
+
+Microsoft Visual Studio Solution File, Format Version 15.00
+# Visual Studio 2017
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "API", "API.csproj", "{36D5F45F-E6A3-4487-AF73-275CF95B243E}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{36D5F45F-E6A3-4487-AF73-275CF95B243E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{36D5F45F-E6A3-4487-AF73-275CF95B243E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{36D5F45F-E6A3-4487-AF73-275CF95B243E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{36D5F45F-E6A3-4487-AF73-275CF95B243E}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
+>>>>>>> Stashed changes
