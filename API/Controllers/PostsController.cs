@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
 namespace API.Controllers
 {
@@ -22,21 +23,36 @@ namespace API.Controllers
 
         // GET api/values/5
         [HttpGet("{id}")]
-        public string Get(int id)
+        public PostsIndhold Get(int id)
         {
-            return "value";
+            var post = db.postsindhold.Include(x => x.PostTypeId).FirstOrDefault(y => y.Id == id);
+            return post;
         }
 
         // POST api/values
         [HttpPost]
-        public void Post([FromBody]string value)
+        public PostsIndhold Post([FromBody]string value)
         {
+            PostsIndhold post = new PostsIndhold();
+            post = db.postsindhold.Add(post).Entity;
+            db.SaveChanges();
+            return post;
         }
 
         // PUT api/values/5
         [HttpPut("{id}")]
-        public void Put(int id, [FromBody]string value)
+        public PostsIndhold Put(int id, [FromBody]string new_title, [FromBody]DateTime closeDate, [FromBody]string body)
         {
+            PostsIndhold postsIndhold = db.postsindhold.Find(id);
+            if (postsIndhold == null)
+                return null;
+            else
+            {
+                postsIndhold.Title = new_title;
+                postsIndhold.ClosedDate = closeDate;
+                postsIndhold.Body = body;
+            }
+            return postsIndhold;
         }
 
         // DELETE api/values/5
