@@ -23,6 +23,18 @@ namespace API.Controllers
             return posts;
         }
 
+        [HttpGet("{search}")]
+        public ActionResult GetPostsBySearch(string search)
+        {
+            var posts = db.postsindhold.Where(p => p.Body.Contains(search));
+
+            if (posts.ToList().Count > 0)
+                return Json(posts);
+            else
+                Response.StatusCode = (int)HttpStatusCode.NotFound;
+            return Json(posts);
+        }
+
         // GET api/values/5
         [HttpGet("{id}")]
         public ActionResult Get(int id)
