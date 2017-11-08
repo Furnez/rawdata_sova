@@ -1,9 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
+using System.Net.Http;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFramework;
+using Microsoft.EntityFrameworkCore;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -17,20 +19,26 @@ namespace API.Controllers
 
         // GET: api/values
         [HttpGet]
-        public List<PersonalNotes> Get()
+        public ActionResult Get()
         {
-            var notes = this.db.personalnotes.ToList<PersonalNotes>;
+            var notes = this.db.personalnotes.ToList<PersonalNotes>();
 
-            return notes;
+            Response.StatusCode = (int)HttpStatusCode.OK;
+            return Json(notes);
         }
 
         // GET api/values/5
         [HttpGet("{id}")]
-        public PersonalNotes Get(int id)
+        public ActionResult Get(int id)
         {
-            var note = this.db.personalnotes.Include(x => x.PersonalNotes).FirstOrDefault(x => x.Id == id);
+            var note = this.db.personalnotes.Find(id);
 
-            return note;
+            if (note == null){
+                Response.StatusCode = (int)HttpStatusCode.NotFound;
+                return Json(note);
+            }
+            Response.StatusCode = (int)HttpStatusCode.OK;
+            return Json(note);
         }
 
         // POST api/values
@@ -38,6 +46,7 @@ namespace API.Controllers
         public PersonalNotes Put(String new_note, DateTime note_date)
         {
             PersonalNotes createNote = new PersonalNotes { NoteString = new_note, NoteCreationDate = note_date};
+            
             return createNote;
         }
 
@@ -45,7 +54,7 @@ namespace API.Controllers
         [HttpPut("{id}")]
         public bool UpdateNote(int id, string new_notestring)
         {
-            PersonalNotes personalID = db.personalnotes.Find(x => x.Id == id);
+            PersonalNotes personalID = db.personalnotes.Find(id);
             if (personalID == null){
                 return false;
             } else {
@@ -59,7 +68,7 @@ namespace API.Controllers
         [HttpDelete("{id}")]
         public bool Delete(int id)
         {
-            PersonalNotes noteId = db.personalnotes.Find(x => x.Id == id);
+            PersonalNotes noteId = db.personalnotes.Find(id);
             if (noteId == null) return false;
             else 
             {
