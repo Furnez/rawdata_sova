@@ -1,19 +1,10 @@
-﻿<Properties StartupConfiguration="{36D5F45F-E6A3-4487-AF73-275CF95B243E}|Default">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Controllers/ValuesController.cs">
+﻿<Properties StartupConfiguration="{03393C3F-4170-493E-AA23-33A2A8394928}|Default">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Controllers/PostsController.cs">
     <Files>
-      <File FileName="appsettings.json" Line="1" Column="1" />
-      <File FileName="appsettings.Development.json" Line="1" Column="1" />
-      <File FileName="Program.cs" Line="1" Column="1" />
+      <File FileName="Program.cs" Line="16" Column="10" />
       <File FileName="Startup.cs" Line="1" Column="1" />
-      <File FileName="Controllers/ValuesController.cs" Line="1" Column="1" />
+      <File FileName="Controllers/PostsController.cs" Line="59" Column="13" />
     </Files>
-    <Pads>
-      <Pad Id="ClassPad">
-        <State name="__root__">
-          <Node name="API" expanded="True" selected="True" />
-        </State>
-      </Pad>
-    </Pads>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

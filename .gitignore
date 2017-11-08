@@ -1,4 +1,7 @@
+.vs
 .vscode
 .bin
 API/bin/*
 API/obj/*
+API/Properties/
+API/*.sln

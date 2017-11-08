@@ -7,7 +7,6 @@ using Microsoft.EntityFrameworkCore;
 using System.Net;
 using System.Net.Http;
 
-
 namespace API.Controllers
 {
     [Route("api/[controller]")]
@@ -17,9 +16,9 @@ namespace API.Controllers
 
         // GET api/values
         [HttpGet]
-        public List<dynamic> Get()
+        public List<PostsIndhold> Get()
         {
-            var posts = this.db.postsindhold.ToList<dynamic>();
+            var posts = this.db.postsindhold.ToList<PostsIndhold>();
 
             return posts;
         }
@@ -35,25 +34,46 @@ namespace API.Controllers
             }
             Response.StatusCode = (int)HttpStatusCode.OK;
             return Json(post);
-
         }
 
         // POST api/values
         [HttpPost]
-        public void Post([FromBody]string value)
+        public PostsIndhold Post([FromBody]string value)
         {
+            PostsIndhold post = new PostsIndhold();
+            post = db.postsindhold.Add(post).Entity;
+            db.SaveChanges();
+            return post;
         }
 
         // PUT api/values/5
         [HttpPut("{id}")]
-        public void Put(int id, [FromBody]string value)
+        public PostsIndhold Put(int id, [FromBody]string new_title, [FromBody]DateTime closeDate, [FromBody]string body)
         {
+            PostsIndhold postsIndhold = db.postsindhold.Find(id);
+            if (postsIndhold == null)
+                return null;
+            else
+            {
+                postsIndhold.Title = new_title;
+                postsIndhold.ClosedDate = closeDate;
+                postsIndhold.Body = body;
+            }
+            return postsIndhold;
         }
 
         // DELETE api/values/5
         [HttpDelete("{id}")]
-        public void Delete(int id)
+        public PostsIndhold Delete(int id)
         {
+            PostsIndhold postsIndhold = db.postsindhold.Find(id);
+            if (postsIndhold == null) return null;
+            else
+            {
+                db.postsindhold.Remove(postsIndhold);
+                db.SaveChanges();
+            }
+            return postsIndhold;
         }
     }
 }
