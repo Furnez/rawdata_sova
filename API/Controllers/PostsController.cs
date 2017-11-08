@@ -3,6 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
+using System.Net;
+using System.Net.Http;
+
 
 namespace API.Controllers
 {
@@ -22,9 +26,16 @@ namespace API.Controllers
 
         // GET api/values/5
         [HttpGet("{id}")]
-        public PostsIndhold Get(int id)
+        public ActionResult Get(int id)
         {
-            return db.postsindhold.Find(id);
+            var post = db.postsindhold.Find(id);
+            if (post == null){
+                Response.StatusCode = (int)HttpStatusCode.NotFound;
+                return Json(post);
+            }
+            Response.StatusCode = (int)HttpStatusCode.OK;
+            return Json(post);
+
         }
 
         // POST api/values
