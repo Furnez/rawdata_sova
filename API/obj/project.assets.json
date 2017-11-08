@@ -13363,28 +13363,33 @@
     ]
   },
   "packageFolders": {
-    "/Users/DBLJ/.nuget/packages/": {},
-    "/usr/local/share/dotnet/sdk/NuGetFallbackFolder": {}
+    "C:\\Users\\Søren\\.nuget\\packages\\": {},
+    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
+    "restoreSettings": {
+      "hideWarningsAndErrors": true
+    },
     "restore": {
-      "projectUniqueName": "/Users/DBLJ/Desktop/AssigProjet/API/API.csproj",
+      "projectUniqueName": "C:\\Users\\Søren\\Documents\\rawdata_sova\\API\\API.csproj",
       "projectName": "API",
-      "projectPath": "/Users/DBLJ/Desktop/AssigProjet/API/API.csproj",
-      "packagesPath": "/Users/DBLJ/.nuget/packages/",
-      "outputPath": "/Users/DBLJ/Desktop/AssigProjet/API/obj/",
+      "projectPath": "C:\\Users\\Søren\\Documents\\rawdata_sova\\API\\API.csproj",
+      "packagesPath": "C:\\Users\\Søren\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Søren\\Documents\\rawdata_sova\\API\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
-        "/usr/local/share/dotnet/sdk/NuGetFallbackFolder"
+        "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
       ],
       "configFilePaths": [
-        "/Users/DBLJ/.nuget/NuGet/NuGet.Config"
+        "C:\\Users\\Søren\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
         "netcoreapp2.0"
       ],
       "sources": {
+        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
@@ -13401,12 +13406,7 @@
     "frameworks": {
       "netcoreapp2.0": {
         "dependencies": {
-          "Microsoft.NETCore.App": {
-            "target": "Package",
-            "version": "2.0.0",
-            "autoReferenced": true
-          },
-          "Microsoft.AspNetCore.All": {
+          "Pomelo.EntityFrameworkCore.MySql": {
             "target": "Package",
             "version": "2.0.0"
           },
@@ -13414,7 +13414,12 @@
             "target": "Package",
             "version": "2.0.0"
           },
-          "Pomelo.EntityFrameworkCore.MySql": {
+          "Microsoft.NETCore.App": {
+            "target": "Package",
+            "version": "2.0.0",
+            "autoReferenced": true
+          },
+          "Microsoft.AspNetCore.All": {
             "target": "Package",
             "version": "2.0.0"
           }
