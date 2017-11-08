@@ -57,8 +57,16 @@ namespace API.Controllers
 
         // DELETE api/values/5
         [HttpDelete("{id}")]
-        public void Delete(int id)
+        public PostsIndhold Delete(int id)
         {
+            PostsIndhold postsIndhold = db.postsindhold.Find(id);
+            if (postsIndhold == null) return null;
+            else
+            {
+                db.postsindhold.Remove(postsIndhold);
+                db.SaveChanges();
+            }
+            return postsIndhold;
         }
     }
 }
