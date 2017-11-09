@@ -9,12 +9,13 @@ using Microsoft.EntityFrameworkCore;
 
 namespace API.Controllers
 {
-    [Route("api/[controller]")]
+    
     public class PostsController : Controller
     {
         private SOVAContext db = new SOVAContext();
 
         // GET api/values
+        [Route("api/[controller]")]
         [HttpGet]
         public List<PostsIndhold> Get()
         {
@@ -23,20 +24,10 @@ namespace API.Controllers
             return posts;
         }
 
-        [HttpGet("{search}")]
-        public ActionResult GetPostsBySearch(string search)
-        {
-            var posts = db.postsindhold.Where(p => p.Body.Contains(search));
-
-            if (posts.ToList().Count > 0)
-                return Json(posts);
-            else
-                Response.StatusCode = (int)HttpStatusCode.NotFound;
-            return Json(posts);
-        }
 
         // GET api/values/5
-        [HttpGet("{id}")]
+        [Route("api/[controller]/{id}")]
+        [HttpGet]
         public ActionResult Get(int id)
         {
             var post = db.postsindhold.Find(id);
@@ -49,6 +40,7 @@ namespace API.Controllers
         }
 
         // POST api/values
+        [Route("api/[controller]/new")]
         [HttpPost]
         public PostsIndhold Post([FromBody]string value)
         {
@@ -59,7 +51,8 @@ namespace API.Controllers
         }
 
         // PUT api/values/5
-        [HttpPut("{id}")]
+        [Route("api/[controller]/up/{id}")]
+        [HttpPut]
         public PostsIndhold Put(int id, [FromBody]string new_title, [FromBody]DateTime closeDate, [FromBody]string body)
         {
             PostsIndhold postsIndhold = db.postsindhold.Find(id);
@@ -75,7 +68,8 @@ namespace API.Controllers
         }
 
         // DELETE api/values/5
-        [HttpDelete("{id}")]
+        [Route("api/[controller]/del/{id}")]
+        [HttpDelete]
         public PostsIndhold Delete(int id)
         {
             PostsIndhold postsIndhold = db.postsindhold.Find(id);
@@ -86,6 +80,19 @@ namespace API.Controllers
                 db.SaveChanges();
             }
             return postsIndhold;
+        }
+
+        [Route("api/[controller]/search/{search}")]
+        [HttpGet]
+        public ActionResult GetPostsBySearch(string search)
+        {
+            var posts = db.postsindhold.Where(p => p.Body.Contains(search));
+
+            if (posts.ToList().Count > 0)
+                return Json(posts);
+            else
+                Response.StatusCode = (int)HttpStatusCode.NotFound;
+            return Json(posts);
         }
     }
 }
