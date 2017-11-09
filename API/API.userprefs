@@ -1,0 +1,18 @@
+﻿<Properties StartupConfiguration="{E8E8D39F-AE81-4DA7-B3FA-98532987FAF9}|Default">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Models/Commentsbody.cs">
+    <Files>
+      <File FileName="Controllers/PostsController.cs" Line="36" Column="10" />
+      <File FileName="Controllers/CommentsController.cs" Line="52" Column="9" />
+      <File FileName="markedController.cs" Line="54" Column="32" />
+      <File FileName="Models/Marked.cs" Line="15" Column="61" />
+      <File FileName="Models/Commentsbody.cs" Line="12" Column="36" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.ItemProperties.API PreferredExecutionTarget="MonoDevelop.Default" />
+  <MultiItemStartupConfigurations />
+</Properties>
