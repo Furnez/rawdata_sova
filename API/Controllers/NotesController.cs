@@ -6,18 +6,19 @@ using System.Net.Http;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using API.Models;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
 namespace API.Controllers
 {
-    [Route("api/[controller]")]
     public class NotesController : Controller
     {
 
         private SOVAContext db = new SOVAContext();
 
-        // GET: api/values
+        // GET: api/notes
+        [Route("api/[controller]")]
         [HttpGet]
         public ActionResult Get()
         {
@@ -27,8 +28,9 @@ namespace API.Controllers
             return Json(notes);
         }
 
-        // GET api/values/5
-        [HttpGet("{id}")]
+        // GET api/notes/5
+        [Route("api/[controller]/{id}")]
+        [HttpGet]
         public ActionResult Get(int id)
         {
             var note = this.db.personalnotes.Find(id);
@@ -41,7 +43,8 @@ namespace API.Controllers
             return Json(note);
         }
 
-        // POST api/values
+        // POST api/notes
+        [Route("api/[controller]")]
         [HttpPost]
         public PersonalNotes Put(String new_note, DateTime note_date)
         {
@@ -50,8 +53,9 @@ namespace API.Controllers
             return createNote;
         }
 
-        // PUT api/values/5
-        [HttpPut("{id}")]
+        // PUT api/notes/5
+        [Route("api/[controller]/{id}")]
+        [HttpPut]
         public bool UpdateNote(int id, string new_notestring)
         {
             PersonalNotes personalID = db.personalnotes.Find(id);
@@ -65,7 +69,8 @@ namespace API.Controllers
         }
 
         // DELETE api/values/5
-        [HttpDelete("{id}")]
+        [Route("api/[controller]/{id}")]
+        [HttpDelete]
         public bool Delete(int id)
         {
             PersonalNotes noteId = db.personalnotes.Find(id);

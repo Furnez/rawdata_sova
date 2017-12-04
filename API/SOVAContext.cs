@@ -4,6 +4,7 @@ using System.Linq;
 using System.IO;
 using System.Collections.Generic;
 using Microsoft.EntityFrameworkCore;
+using API.Models;
 
 namespace API
 {
@@ -63,7 +64,7 @@ namespace API
             base.OnModelCreating(modelBuilder);
 
             modelBuilder.Entity<Commentsbody>()
-            .Property(x => x.Id).HasColumnName("Id");
+            .Property(x => x.Id).HasColumnName("Commentid");
 
             modelBuilder.Entity<CommentUser>()
             .Property(x => x.Id).HasColumnName("Id");
