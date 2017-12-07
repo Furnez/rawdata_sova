@@ -7,7 +7,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace API
 {
-    // Hint: Use Nugget package Pomelo.EntityFramework.MySql
+    // Use Nugget package Pomelo.EntityFramework.MySql
     public class SOVAContext : DbContext
     {
         // Public variables
