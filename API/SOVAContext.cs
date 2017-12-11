@@ -40,11 +40,17 @@ namespace API
                 dbParams.Add(line.Split('=')[1]); 
             }
             file.Close();
-
-            this._connectionName = dbParams[0];
-            this._dbName = dbParams[1];
-            this._uid = dbParams[2];
-            this._pwd = dbParams[3];
+            if (dbParams[0] == "local"){
+                this._connectionName = dbParams[1];
+                this._dbName = dbParams[2];
+                this._uid = dbParams[3];
+                this._pwd = dbParams[4];
+            }else{
+                this._connectionName = dbParams[5];
+                this._dbName = dbParams[6];
+                this._uid = dbParams[7];
+                this._pwd = dbParams[8];
+            }
         }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
