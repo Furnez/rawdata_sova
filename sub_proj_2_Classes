@@ -1,0 +1,15 @@
+        private int CategoryId { get; set; }
+        private String QuantityUnit { get; set; }
+        private double UnitPrice { get; set; }
+        private DateTime ShippedDate { get; set; }
+		
+		
+class SearchHistory
+{
+
+[Column("SearchNumberId")]
+private int Id { get; set; } 
+private String SearchString { get; set; } 
+private DateTime SearchDate { get; set; }
+}
+
