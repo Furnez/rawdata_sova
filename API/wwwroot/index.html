@@ -1,19 +1,12 @@
-<!DOCTYPE>
-<html lang="en">
-    <head>
-        <title>SOVA App</title>
-        <!-- Meta tags -->
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-        <!-- CSS links -->
-        <link rel="stylesheet" href="lib/bootstrap/css/bootstrap.min.css"/>
-    </head>
-    <body>
-        <button data-bind="click: switchComponent">Posts</button>
+<!DOCTYPE html>
+<head>
+    <title>SOVA Project</title>
+    <link href="lib/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet"/>
+</head>
+<body>
 
-        <!-- JS script -->
-        <script data-main="js/main" src="lib/requirejs/require.js"></script>
-        <script>
-        </script>
-    </body>
-</html>
+    <button data-bind="click : changeView"></button>
+    <div data-bind="component: {name: currentView}"></div>
+
+    <script data-main="js/main" src="lib/requirejs/require.js"></script>
+</body>

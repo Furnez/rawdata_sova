@@ -1,26 +1,30 @@
-require.config({
-
+﻿require.config({
     baseUrl: "js",
-
     paths: {
-        jquery: '../lib/jQuery/dist/jquery.min',
-        knockout: '../lib/knockout/dist/knockout',
-        text: '../lib/text/text',
-        bootstrap: '../lib/bootstrap/js/bootstrap.min',
-        home: 'services/home'
+        jquery: "../lib/jquery/dist/jquery.min",
+        bootstrap: "../lib/bootstrap/dist/js/bootstrap.min",
+        knockout: "../lib/knockout/dist/knockout",
+        text: "../lib/text/text",
+        dataservice: 'services/dataservice',
     }
 });
 
-require(['knockout', 'home'], function (ko, home) {
-    var vm = (function () {
-        var switchComponent = function () {
-            home.getPosts();
-        }
+require(['knockout'], (ko) => {
 
-        return {
-            switchComponent
-        }
-    })();
+    ko.components.register('post-list',
+        {
+            viewModel: { require: 'components/postlist/postlist' },
+            template: { require: 'text!components/postlist/postlist_view.html' }
+        });
+});
 
-    ko.applyBindings(vm);
+require(['knockout'], (ko) => {
+    var view = {
+        currentView: ko.observable('post-list'),
+        changeView: function () {
+            this.currentView("Hello");
+        }
+    };
+
+    ko.applyBindings(view);
 });
