@@ -1,6 +1,6 @@
-﻿<div data-bind="post">
+﻿<div data-bind="foreach: post">
     <div>
-        <h1 data-bind="text: title"></h1>
-        <div data-bind="html: body"></div>
+        <h1 data-bind="text: posts[0].title"></h1>
+        <div data-bind="html: posts[0].body"></div>
     </div>
 </div>

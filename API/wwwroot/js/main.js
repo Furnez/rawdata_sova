@@ -30,16 +30,20 @@ require(['knockout'], (ko) => {
 });
 
 require(['knockout'], (ko) => {
-    var view = {
-        currentView: ko.observable('post-list'),
-        postSearch: function () {
+    function View(){
+        this.indexpage = ko.observable(null);
+        this.currentView = ko.observable('post-list'),
+        this.postSearch= () => {
             this.currentView('search-result');
         },
-        showPost: function () {
+        this.showPost= (id) => {
             console.log("ENTER VIEW FUNC");
+            console.log(id);
+            this.indexpage(id);
             this.currentView('show-post');
-        },
+        }
+
     };
 
-    ko.applyBindings(view);
+    ko.applyBindings(View);
 });

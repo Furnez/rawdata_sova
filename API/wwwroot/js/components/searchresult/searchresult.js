@@ -1,7 +1,7 @@
 ﻿define(['knockout', 'jquery', 'dataservice'], (ko, $, dataservice) => {
     return function (params) {
         var posts_search = ko.observableArray([]);
-
+        var showPost = (id) => {console.log(id,params);params.showPost(id);}
         var getPosts = (search) => {
             console.log(search)
             dataservice.getResult(search, (data) => {
@@ -16,7 +16,8 @@
         getPosts($('.form-control').val());
 
         return {
-            posts_search
+            posts_search,
+            showPost
         };
     }
 });
