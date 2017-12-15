@@ -2,67 +2,43 @@
 <head>
     <title>SOVA Project</title>
     <link href="lib/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
-    <script src="https://ajax.aspnetcdn.com/ajax/knockout/knockout-3.1.0.js" type="text/javascript"></script>
     <link rel="stylesheet" href="styles.css">
-
     <link rel="icon" href="https://i.imgur.com/bIOmure.png">
 
+    <script src="lib/jQuery/dist/jquery.min.js"></script>
+    <script src="lib/bootstrap/dist/js/bootstrap.min.js"></script>
 </head>
 <body>
-    <br />
-    <br />
-    <!-- <button data-bind="click : changeView"></button>-->
-   
-    <h1>
-        SOVA <input id="searchinput" type="text" name="search" placeholder="Search.." data-bind="">
-    </h1>
-    <div class="nav">
-        <ul>
-            <li><a href="index.html">Home</a></li>
-            <li><a href="favPosts.html">Favorite Posts</a></li>
-            <li><a href="">Personal Notes</a></li>
-            <div class="dropdown">
-                <button onclick="myFunction()" class="dropbtn">Login Here</button>
-                <div id="myDropdown" class="dropdown-content">
-                    <!-- nned to check error bef put that back
-                    <p id="p1">Username: <input data-bind="value: firstString" /></p>
-                    <p id="p1">Password: <input data-bind="value: secondString" /></p>
-                    -->
-                </div>
+    <nav class="navbar navbar-inverse">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <span class="navbar-brand">StackOverflow Viewer</span>
             </div>
-            <!-- <p id="p2"><strong data-bind="text: firstString"></strong></p>
-             <!--<p id="p2">Second String: <strong data-bind="text: secondString"></strong></p>
-             <p id="p2">Derived String: <strong data-bind="text: thirdString"></strong></p>-->
-        </ul>
-    </div>
+            <ul class="nav navbar-nav">
+                <li class="active"><a class="nav-link">Home</a></li>
+                <li class="dropdown">
+                    <a class="dropdown-toggle nav-link" data-toggle="dropdown">My posts<span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li><a class="nav-link">Marked</a></li>
+                        <li><a class="nav-link">Notes</a></li>
+                        <li><a class="nav-link">History</a></li>
+                    </ul>
+                </li>
+            </ul>
+            <form class="navbar-form navbar-left" onsubmit="postSearch(); return false;">
+                <div class="input-group">
+                    <input type="text" class="form-control" name="search" placeholder="Search">
+                    <div class="input-group-btn">
+                        <button id="button-search" class="btn btn-default" data-bind="click : postSearch">
+                            <i class="glyphicon glyphicon-search"></i>
+                        </button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </nav>
+
     <div data-bind="component: {name: currentView}"></div>
+
+    <script data-main="js/main" src="lib/requirejs/require.js"></script>
 </body>
-<script data-main="js/main" src="lib/requirejs/require.js"></script>
-<script>
-/*        function AppViewModel() {
-         this.firstString = ko.observable("");
-         this.secondString = ko.observable("");
-         this.thirdString = ko.computed(function() {
-            return this.firstString() + " " + this.secondString();
-         }, this);
-        }
-        ko.applyBindings(new AppViewModel());*/
-
-  
-
-
-        function myFunction() {
-         document.getElementById("myDropdown").classList.toggle("show");
-        }
-        // Close the dropdown menu if the user clicks outside of it
-        window.onclick = function(event) {
-         if (!event.target.matches('.dropbtn')) {
-          var dropdowns = document.getElementsByClassName("dropdown-content");
-          var i;
-          for (i = 0; i < dropdowns.length; i++) {
-           var openDropdown = dropdowns[i];
-            if (openDropdown.classList.contains('show')) { }
-            }
-          }
-         }
-</script>

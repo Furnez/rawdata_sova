@@ -1,19 +1,22 @@
-﻿define(['knockout', 'dataservice'], (ko, dataservice) => {
-    function Search(params) {
-        this.posts = ko.observableArray([]);
-        this.title = ko.observable("KNOCKOUT");
+﻿define(['knockout', 'jquery', 'dataservice'], (ko, $, dataservice) => {
+    return function (params) {
+        var posts_search = ko.observableArray([]);
 
-        console.log(jQuery(searchinput).change());
-
-        this.getPostss = (search) => {
-        console.log(search)
-          dataservice.getResult(search, (e) => {
-            console.log(e);
-            this.posts(e);
-          });
+        var getPosts = (search) => {
+            console.log(search)
+            dataservice.getResult(search, (data) => {
+                posts_search(data);
+            });
         };
-        $('#searchinput').change((e) => {console.log(e); this.getPostss(e.target.value)});
-    }
 
-    return Search;
+        $('#button-search').click(() => {
+            getPosts($('.form-control').val());
+        });
+
+        getPosts($('.form-control').val());
+
+        return {
+            posts_search
+        };
+    }
 });

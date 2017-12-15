@@ -2,7 +2,6 @@
     baseUrl: "js",
     paths: {
         jquery: "../lib/jquery/dist/jquery.min",
-        bootstrap: "../lib/bootstrap/dist/js/bootstrap.min",
         knockout: "../lib/knockout/dist/knockout",
         text: "../lib/text/text",
         dataservice: 'services/dataservice',
@@ -16,11 +15,13 @@ require(['knockout'], (ko) => {
             viewModel: { require: 'components/postlist/postlist' },
             template: { require: 'text!components/postlist/postlist_view.html' }
         });
+
     ko.components.register('show-post',
         {
             viewModel: { require: 'components/showpost/showpost' },
             template: { require: 'text!components/showpost/showpost_view.html' }
         });
+
      ko.components.register('search-result',
         {
             viewModel: { require: 'components/searchresult/searchresult' },
@@ -30,10 +31,14 @@ require(['knockout'], (ko) => {
 
 require(['knockout'], (ko) => {
     var view = {
-        currentView: ko.observable('search-result')/*,
-        changeView: function () {
+        currentView: ko.observable('post-list'),
+        postSearch: function () {
             this.currentView('search-result');
-        }*/
+        },
+        showPost: function () {
+            console.log("ENTER VIEW FUNC");
+            this.currentView('show-post');
+        },
     };
 
     ko.applyBindings(view);

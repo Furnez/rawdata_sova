@@ -1,18 +1,19 @@
 ﻿define(['knockout', 'dataservice'], (ko, dataservice) => {
-    function Posts(params) {
-        this.posts = ko.observableArray([]);
-        this.title = ko.observable("KNOCKOUT");
+    return function (params) {
+        var post = ko.observableArray({});
 
-
-        this.getPostss = () => {
-          dataservice.getPost(19, (e) => {
-            console.log(e.posts);
-            this.posts(e.posts);
-          });
+        var getPost = (id) => {
+            dataservice.getPost(id, data => {
+                console.log(data);
+                post(data);
+            });
         };
 
-       this.getPostss();
-    }
+        console.log('PARAMS POST => ', params);
+        //getPost();
 
-    return Posts;
+        return {
+            post
+        };
+    }
 });

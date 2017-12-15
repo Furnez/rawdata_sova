@@ -1,6 +1,5 @@
 ﻿<div data-bind="foreach: posts">
     <div>
-        <a href="#"><span data-bind="text: title"></span></a>
-        <!--<div data-bind="html: body"></div>-->
+        <a class="nav-link"><span data-bind="text: title, click : $parent.showPost"></span></a>
     </div>
 </div>
