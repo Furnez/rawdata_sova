@@ -4,14 +4,16 @@
     <link href="lib/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
     <script src="https://ajax.aspnetcdn.com/ajax/knockout/knockout-3.1.0.js" type="text/javascript"></script>
     <link rel="stylesheet" href="styles.css">
+    <link rel="icon" href="https://i.imgur.com/bIOmure.png">
+
 </head>
 <body>
     <br />
     <br />
     <!-- <button data-bind="click : changeView"></button>-->
-
+   
     <h1>
-        SOVA <input type="text" name="search" placeholder="Search..">
+        SOVA <input id="searchinput" type="text" name="search" placeholder="Search.." data-bind="">
     </h1>
     <div class="nav">
         <ul>
@@ -36,14 +38,18 @@
 </body>
 <script data-main="js/main" src="lib/requirejs/require.js"></script>
 <script>
-        function AppViewModel() {
+/*        function AppViewModel() {
          this.firstString = ko.observable("");
          this.secondString = ko.observable("");
          this.thirdString = ko.computed(function() {
             return this.firstString() + " " + this.secondString();
          }, this);
         }
-        ko.applyBindings(new AppViewModel());
+        ko.applyBindings(new AppViewModel());*/
+
+  
+
+
         function myFunction() {
          document.getElementById("myDropdown").classList.toggle("show");
         }

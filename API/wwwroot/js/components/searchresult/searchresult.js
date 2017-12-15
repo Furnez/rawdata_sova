@@ -3,15 +3,16 @@
         this.posts = ko.observableArray([]);
         this.title = ko.observable("KNOCKOUT");
 
+        console.log(jQuery(searchinput).change());
 
-        this.getPostss = () => {
-          dataservice.getResult("hard-coding the number in", (e) => {
+        this.getPostss = (search) => {
+        console.log(search)
+          dataservice.getResult(search, (e) => {
             console.log(e);
             this.posts(e);
           });
         };
-
-       this.getPostss();
+        $('#searchinput').change((e) => {console.log(e); this.getPostss(e.target.value)});
     }
 
     return Search;
