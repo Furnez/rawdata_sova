@@ -16,14 +16,19 @@ require(['knockout'], (ko) => {
             viewModel: { require: 'components/postlist/postlist' },
             template: { require: 'text!components/postlist/postlist_view.html' }
         });
+    ko.components.register('show-post',
+        {
+            viewModel: { require: 'components/showpost/showpost' },
+            template: { require: 'text!components/showpost/showpost_view.html' }
+        });
 });
 
 require(['knockout'], (ko) => {
     var view = {
-        currentView: ko.observable('post-list'),
+        currentView: ko.observable('show-post')/*,
         changeView: function () {
-            this.currentView("Hello");
-        }
+            this.currentView('search-result');
+        }*/
     };
 
     ko.applyBindings(view);
