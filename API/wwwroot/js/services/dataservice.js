@@ -12,21 +12,22 @@
 
     var getPost = function (id, callback) {
         url += "/api/posts/" + id;
-        console.log("called");
-        console.log(url);
         var test = $.getJSON(url, callback);
-        console.log(test);
         return test;
 
     };
 
-    var getResult = function (search, callback) {
+    var getResult = (search, callback) => {
         url += "/api/posts/search/" + search;
-        $.getJSON(url,callback);
+        console.log(url);
+        var test = $.getJSON(url,callback);
+        console.log(test);
+        return test;
     };
 
     return {
         getPosts,
-        getPost
+        getPost,
+        getResult
     };
 });

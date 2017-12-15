@@ -21,11 +21,16 @@ require(['knockout'], (ko) => {
             viewModel: { require: 'components/showpost/showpost' },
             template: { require: 'text!components/showpost/showpost_view.html' }
         });
+     ko.components.register('search-result',
+        {
+            viewModel: { require: 'components/searchresult/searchresult' },
+            template: { require: 'text!components/searchresult/searchresult_view.html' }
+        });
 });
 
 require(['knockout'], (ko) => {
     var view = {
-        currentView: ko.observable('show-post')/*,
+        currentView: ko.observable('search-result')/*,
         changeView: function () {
             this.currentView('search-result');
         }*/
