@@ -30,17 +30,19 @@ require(['knockout'], (ko) => {
 });
 
 require(['knockout'], (ko) => {
-    function View(){
-        this.indexpage = ko.observable(null);
-        this.currentView = ko.observable('post-list'),
-        this.postSearch= () => {
-            this.currentView('search-result');
-        },
-        this.showPost= (id) => {
-            this.indexpage(id);
-            this.currentView('show-post');
-        }
-
+    function View() {
+            this.indexpage = ko.observable(null);
+            this.currentView = ko.observable('post-list');
+            this.returnHome = () => {
+                this.currentView('post-list');
+            };
+            this.postSearch = () => {
+                this.currentView('search-result');
+            };
+            this.showPost = (id) => {
+                this.indexpage(id);
+                this.currentView('show-post');
+            };
     };
 
     ko.applyBindings(View);

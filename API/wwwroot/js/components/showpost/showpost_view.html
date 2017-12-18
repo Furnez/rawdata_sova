@@ -1,14 +1,24 @@
-﻿<div data-bind="foreach: posts">
+﻿<div data-bind="foreach: {data: posts, as: 'post' }">
     <div class="container-fluid post">
         <div class="row">
             <div class="col-lg-1 score">
                 <span>Score :</span><br />
                 <span data-bind="text: score"></span>
             </div>
-            <div class="col-lg-11">
+            <div class="col-lg-6">
                 <div class="title" data-bind="text: title"></div>
                 <div data-bind="html: body"></div>
+                <div class="comment-section" data-bind="foreach: { data: $parent.comments, as: 'comment' }">
+                    <div data-bind="if: post.id == comment.postid">
+                        <div class="row comment">
+                            <div class="col-lg-1" data-bind="text: comment.commentscore"></div>
+                            <div class="col-lg-8" data-bind="text: comment.commenttext"></div>
+                        </div>
+                        <hr />
+                    </div>
+                </div>
             </div>
         </div>
+        <hr />
     </div>
 </div>

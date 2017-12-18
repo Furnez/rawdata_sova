@@ -1,15 +1,15 @@
 <!DOCTYPE html>
 <head>
     <title>SOVA Project</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
     <link href="lib/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
     <link rel="stylesheet" href="css/styles.css">
     <link rel="stylesheet" href="css/showpost.css" />
     <link rel="icon" href="https://i.imgur.com/bIOmure.png">
     <script src="lib/jQuery/dist/jquery.min.js"></script>
     <script src="lib/bootstrap/dist/js/bootstrap.min.js"></script>
-    <script>
-
-    </script>
 </head>
 <body>
     <nav class="navbar navbar-inverse">
@@ -18,7 +18,7 @@
                 <span class="navbar-brand">StackOverflow Viewer</span>
             </div>
             <ul class="nav navbar-nav">
-                <li class="active"><a class="nav-link">Home</a></li>
+                <li class="active"><a class="nav-link" data-bind="click: returnHome">Home</a></li>
                 <li class="dropdown">
                     <a class="dropdown-toggle nav-link" data-toggle="dropdown">My posts<span class="caret"></span></a>
                     <ul class="dropdown-menu">
@@ -41,8 +41,8 @@
         </div>
     </nav>
 
-        <div data-bind="component: {name: currentView , params: {showPost,indexpage}}"></div>
+    <div data-bind="component: {name: currentView , params: {showPost,indexpage}}"></div>
 
-        <script data-main="js/main" src="lib/requirejs/require.js"></script>
+    <script data-main="js/main" src="lib/requirejs/require.js"></script>
 
 </body>
