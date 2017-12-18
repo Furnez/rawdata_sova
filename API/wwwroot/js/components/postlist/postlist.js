@@ -27,12 +27,12 @@
                 options = {label: posts()[i].title, url: '#', target: '_top',id:posts()[i].id};
                 entries.push(options);
             }
-            console.log();
+            console.log(document.body.clientWidth);
              var settings = {
 
                 entries: entries,
                 width: $('#tag-cloud')[0].clientWidth,
-                height: 500,
+                height: document.body.clientWidth/3,
                 radius: '65%',
                 radiusMin: 75,
                 bgDraw: true,
@@ -55,7 +55,9 @@
             $('#tag-cloud').svg3DTagCloud(settings);
         };
 
-
+        var getRandomPosts = () => {
+            console.log("saluuut");
+        };
         var getPosts = function () {
             dataservice.getPosts(data => {
                 posts(data);
@@ -69,7 +71,8 @@
         return {
             posts,
              showPost,
-             cloudShow
+             cloudShow,
+             getRandomPosts
         };
     }
 });
