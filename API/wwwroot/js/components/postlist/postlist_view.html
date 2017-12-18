@@ -1,4 +1,15 @@
-﻿<h1>List of all subject :</h1>
+﻿<!-- tag canvas doc : http://www.goat1000.com/tagcanvas-install.php -->
+<!-- <div id="myCanvasContainer" data-bind="" >
+    <canvas width="1000px" height="300px" id="myCanvas">
+        <p>Anything in here will be replaced on browsers that support the canvas element</p>
+        <ul data-bind="foreach: posts">
+            <li><a class="nav-link"><span data-bind="text: title, click : () => $parent.showPost(id)"></span></a></li>
+        </ul>
+    </canvas>
+</div> -->
+<div id="tag-cloud" data-bind="with: posts"></div>
+
+<h1>List of all subject :</h1>
 <div data-bind="foreach: posts">
     <div>
         <a class="nav-link"><span data-bind="text: title, click : () => $parent.showPost(id)"></span></a>

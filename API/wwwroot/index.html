@@ -6,21 +6,8 @@
     <link rel="icon" href="https://i.imgur.com/bIOmure.png">
     <script src="lib/jQuery/dist/jquery.min.js"></script>
     <script src="lib/bootstrap/dist/js/bootstrap.min.js"></script>
-    <script type="text/javascript" src="js/tagcanvas.min.js"></script>
     <script>
- $(document).ready(function() {
-   if( ! $('#myCanvas').tagcanvas({
-     textColour : '#ffffff',
-     textHeight : 50,
-     outlineThickness : 1,
-     maxSpeed : 0.08,
-     depth : 0.8
-   })) {
-     // TagCanvas failed to load
-     $('#myCanvasContainer').hide();
-   }
-   // your other jQuery stuff here...
- });
+
     </script>
 </head>
 <body>
@@ -52,19 +39,7 @@
             </form>
         </div>
     </nav>
-    <!-- tag canvas doc : http://www.goat1000.com/tagcanvas-install.php -->
-    <div id="myCanvasContainer">
-        <canvas width="1000px" height="300px" id="myCanvas">
-            <p>Anything in here will be replaced on browsers that support the canvas element</p>
-            <ul>
-                <li><a href="http://www.google.com" target="_blank" style="font-size:2em;">Google</a></li>
-                <li><a href="/fish">Fish</a></li>
-                <li><a href="/chips">Chips</a></li>
-                <li><a href="/salt">Salt</a></li>
-                <li><a href="/vinegar">Vinegar</a></li>
-            </ul>
-        </canvas>
-    </div>
+
         <div data-bind="component: {name: currentView , params: {showPost,indexpage}}"></div>
 
         <script data-main="js/main" src="lib/requirejs/require.js"></script>
