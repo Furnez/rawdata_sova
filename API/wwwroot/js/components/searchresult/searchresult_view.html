@@ -1,4 +1,4 @@
-<div data-bind="if: posts_search().length == 0">
+<div class="toShowAfterBinding" data-bind="if: posts_search().length == 0">
     <div class="error-search">
         <span>No result for your search. Please try something else.</span>
     </div>
@@ -9,7 +9,7 @@
     <div class="circle1"></div>
 </div>
 
-<div style="display:flex;flex-direction:column;" data-bind="foreach: posts_search">
+<div class="toShowAfterBinding" style="display:flex;flex-direction:column;" data-bind="foreach: posts_search">
     <br />
     <div style="display:flex;border:2px solid lightgrey;border-radius:8px;padding:1px;margin:10px;background-color:lightgrey;" data-bind="click : () => $parent.showPost(id)">
         <div style="display:flex;flex-direction:column;text-align:center;flex:0">
