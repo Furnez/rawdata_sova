@@ -1,5 +1,19 @@
-﻿<div data-bind="foreach: posts_search">
-    <div>
-        <a class="nav-link"><span data-bind="text: title, click : () => $parent.showPost(id)"></span></a>
+﻿<div class="content toHideAfterBinding">
+    <div class="circle"></div>
+    <div class="circle1"></div>
+</div>
+
+<div style="display:flex;flex-direction:column;" data-bind="foreach: posts_search">
+    <br />
+    <div style="display:flex;border:2px solid lightgrey;border-radius:8px;padding:1px;margin:10px;background-color:lightgrey;" data-bind="click : () => $parent.showPost(id)">
+        <div style="display:flex;flex-direction:column;text-align:center;flex:0">
+            <span>Score</span> <span data-bind="text: score"></span><span data-bind="text: new Date(creationDate).toLocaleString('en-GB')"></span>
+        </div>
+        <div style="display:flex;flex:1;align-items:center;justify-content:center;text-align:center;">
+            <a class="nav-link"><span data-bind="text: title"></span></a>
+        </div>
+        <div style="display:flex;flex:1;align-items:center;justify-content:center;text-align:center;">
+            <span data-bind="html: body.match(/(.{1,99}\w)\s/)[1]+'...'"></span>
+        </div>
     </div>
 </div>
