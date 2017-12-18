@@ -9,7 +9,7 @@
 </div> -->
 <div id="tag-cloud" data-bind="with: posts"></div>
 
-<h1>List of all subject :</h1>
+<h1 data-bind="">List of all subject :</h1>
 <div style="display:flex;flex-direction:column;" data-bind="foreach: posts">
     <br />
     <div style="display:flex;border:2px solid lightgrey;border-radius:8px;padding:1px;margin:10px;background-color:lightgrey;" data-bind="click : () => $parent.showPost(id)">

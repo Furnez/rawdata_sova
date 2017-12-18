@@ -23,12 +23,12 @@
             var entries = [];
 
             for (var i = 0; i < 10; i++) {
-            console.log(posts()[i].id);
-                options = {label: posts()[i].title, url: '#', target: '_top',id:posts()[i].id};
+           // randomize posts we display
+            var j = Math.floor((Math.random() * posts().length) + 1);
+                options = {label: posts()[j].title, url: '#', target: '_top',id:posts()[j].id};
                 entries.push(options);
             }
-            console.log(document.body.clientWidth);
-             var settings = {
+            var settings = {
 
                 entries: entries,
                 width: $('#tag-cloud')[0].clientWidth,
