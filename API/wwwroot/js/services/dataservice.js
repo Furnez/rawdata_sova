@@ -21,9 +21,10 @@
         $.getJSON(url,callback);
     };
 
+
     return {
         getPosts,
         getPost,
         getResult
-    };
+        };
 });

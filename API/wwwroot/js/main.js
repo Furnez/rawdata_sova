@@ -36,8 +36,13 @@ require(['knockout'], (ko) => {
             this.returnHome = () => {
                 this.currentView('post-list');
             };
-            this.postSearch = () => {
+
+            this.postSearch = (searchTxt) => {
+                console.log(searchTxt);
                 this.currentView('search-result');
+            };
+            this.onSubmit = (e) => {
+               postSearch($(e).find('input')[0].value);
             };
             this.showPost = (id) => {
                 this.indexpage(id);
