@@ -37,8 +37,6 @@ require(['knockout'], (ko) => {
             this.currentView('search-result');
         },
         this.showPost= (id) => {
-            console.log("ENTER VIEW FUNC");
-            console.log(id);
             this.indexpage(id);
             this.currentView('show-post');
         }
