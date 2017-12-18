@@ -60,7 +60,6 @@
             dataservice.getPosts(data => {
                 posts(data);
                 setTimeout(cloudShow,200);
-                console.log($('.toHideAfterBinding'));
                 $('.toHideAfterBinding').fadeOut(1000);
                 $('.toShowAfterBinding').show();
 
