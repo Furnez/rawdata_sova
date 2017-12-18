@@ -13,7 +13,8 @@
         getPost(params.indexpage());
 
         return {
-            posts
+            posts,
+            comments
         };
     }
 });
