@@ -55,13 +55,15 @@
             $('#tag-cloud').svg3DTagCloud(settings);
         };
 
-        var getRandomPosts = () => {
-            console.log("saluuut");
-        };
+
         var getPosts = function () {
             dataservice.getPosts(data => {
                 posts(data);
                 setTimeout(cloudShow,200);
+                console.log($('.toHideAfterBinding'));
+                $('.toHideAfterBinding').fadeOut(1000);
+                $('.toShowAfterBinding').show();
+
             });
 
         };
@@ -71,8 +73,7 @@
         return {
             posts,
              showPost,
-             cloudShow,
-             getRandomPosts
+             cloudShow
         };
     }
 });
