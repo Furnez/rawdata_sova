@@ -18,7 +18,7 @@
         let searchstr = search.replace(/\s/g, "%20");
         let url = base + "/api/posts/search/" + searchstr;
 
-        $.getJSON(url,callback);
+        $.getJSON(url, callback).fail(callback);
     };
 
 
